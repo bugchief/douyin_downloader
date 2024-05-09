@@ -29,9 +29,9 @@ class LocalRecord:
 
     def save(self):
         with open(self.normal_filename, 'w', encoding='utf-8') as f:
-            json.dump(self.normal, f)
+            json.dump(self.normal, f, ensure_ascii=False, indent=4)
         with open(self.failed_filename, 'w', encoding='utf-8') as f:
-            json.dump(self.failed, f)
+            json.dump(self.failed, f, ensure_ascii=False, indent=4)
 
     def exist_by_id(self, id):
         return id in self.normal
